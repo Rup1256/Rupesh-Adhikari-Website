@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Futuristic Header - 2026</title>
+  <style>
+    :root {
+      --primary: #0F172A;
+      --secondary: #1E293B;
+      --accent: #06D6A0;
+      --accent-glow: rgba(6, 214, 160, 0.5);
+      --neon-blue: #00D9FF;
+      --neon-purple: #9D4EDD;
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --border-tech: #334155;
+      --glass-bg: rgba(15, 23, 42, 0.85);
+      --grid-line: rgba(148, 163, 184, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--primary) 0%, #0A0F1C 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 0 1rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Grid Background Effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -1;
+      opacity: 0.3;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translateY(0) translateX(0); }
+      100% { transform: translateY(40px) translateX(40px); }
+    }
+
+    /* Glowing Particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background: var(--neon-blue);
+      border-radius: 50%;
+      filter: blur(8px);
+      animation: float 15s infinite ease-in-out;
+    }
+
+    .particle:nth-child(1) {
+      width: 120px;
+      height: 120px;
+      top: 20%;
+      left: 10%;
+      background: var(--neon-purple);
+      animation-delay: 0s;
+    }
+
+    .particle:nth-child(2) {
+      width: 80px;
+      height: 80px;
+      top: 60%;
+      right: 15%;
+      background: var(--accent);
+      animation-delay: 2s;
+    }
+
+    .particle:nth-child(3) {
+      width: 160px;
+      height: 160px;
+      bottom: 10%;
+      left: 20%;
+      background: var(--neon-blue);
+      opacity: 0.4;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(20px, -20px) scale(1.1); }
+    }
+
+    /* Header Container */
+    .tech-header {
+      max-width: 1400px;
+      margin: 2rem auto;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-tech);
+      border-radius: 24px;
+      padding: 1.5rem 2rem;
+      position: relative;
+      overflow: visible;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 0 60px rgba(6, 214, 160, 0.05);
+    }
+
+    /* Animated Border Effect */
+    .tech-header::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, 
+        transparent, 
+        var(--accent), 
+        var(--neon-blue),
+        var(--neon-purple),
+        transparent);
+      border-radius: 26px;
+      z-index: -1;
+      animation: borderGlow 4s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tech-header:hover::before {
+      opacity: 1;
+    }
+
+    @keyframes borderGlow {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Header Content */
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Logo Styles */
+    .tech-logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--accent), var(--neon-blue));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-icon::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+      animation: shine 3s infinite linear;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .logo-text {
+      font-family: 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 1.8rem;
+      background: linear-gradient(to right, var(--text-primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+      position: relative;
+    }
+
+    .logo-text span {
+      color: var(--neon-blue);
+      -webkit-text-fill-color: var(--neon-blue);
+    }
+
+    .ai-badge {
+      position: absolute;
+      top: -10px;
+      right: -40px;
+      background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+      color: var(--text-primary);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+    }
+
+    /* Navigation */
+    .tech-nav {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      position: relative;
+    }
+
+    .nav-menu::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      height: 2px;
+      background: linear-gradient(90deg, 
+        transparent, 
+        var(--border-tech), 
+        var(--accent),
+        var(--neon-blue),
+        var(--border-tech),
+        transparent);
+      opacity: 0.5;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .nav-link::before {
+      content: '>';
+      position: absolute;
+      left: -20px;
+      opacity: 0;
+      color: var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-link:hover::before {
+      opacity: 1;
+      left: -15px;
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .nav-link.active::before {
+      opacity: 1;
+      left: -15px;
+    }
+
+    /* AI Assistant Button with Dropdown */
+    .ai-dropdown-wrapper {
+      position: relative;
+    }
+
+    .ai-assistant {
+      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+      color: var(--text-primary);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1001;
+    }
+
+    .ai-assistant::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .ai-assistant:hover::before {
+      left: 100%;
+    }
+
+    .ai-assistant:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+    }
+
+    .ai-pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: aiPulse 1.5s infinite;
+    }
+
+    @keyframes aiPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* Dropdown Content - FIXED POSITIONING */
+    .ai-dropdown-content {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-tech);
+      border-radius: 16px;
+      padding: 1rem;
+      min-width: 250px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      z-index: 1002;
+    }
+
+    .ai-dropdown-content.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .ai-dropdown-content::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      right: 20px;
+      width: 16px;
+      height: 16px;
+      background: var(--glass-bg);
+      border-left: 1px solid var(--border-tech);
+      border-top: 1px solid var(--border-tech);
+      transform: rotate(45deg);
+    }
+
+    .ai-dropdown-content a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 1rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      margin-bottom: 0.5rem;
+    }
+
+    .ai-dropdown-content a:last-child {
+      margin-bottom: 0;
+    }
+
+    .ai-dropdown-content a:hover {
+      background: rgba(6, 214, 160, 0.1);
+      color: var(--text-primary);
+      transform: translateX(5px);
+    }
+
+    .ai-dropdown-content a svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Mobile Menu Button */
+    .tech-menu-button {
+      display: none;
+      background: var(--secondary);
+      border: 1px solid var(--border-tech);
+      border-radius: 10px;
+      width: 50px;
+      height: 50px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .tech-menu-button:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .menu-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
+
+    .menu-icon span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+
+    .menu-icon span:nth-child(1) { top: 0; }
+    .menu-icon span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    .menu-icon span:nth-child(3) { bottom: 0; }
+
+    .tech-menu-button.active .menu-icon span:nth-child(1) {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .tech-menu-button.active .menu-icon span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .tech-menu-button.active .menu-icon span:nth-child(3) {
+      bottom: 50%;
+      transform: translateY(50%) rotate(-45deg);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .tech-nav {
+        gap: 2rem;
+      }
+      
+      .nav-menu {
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tech-header {
+        padding: 1rem 1.5rem;
+        border-radius: 20px;
+      }
+
+      .tech-menu-button {
+        display: flex;
+      }
+
+      .tech-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 300px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(30px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 6rem 2rem 2rem;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-left: 1px solid var(--border-tech);
+        z-index: 999;
+      }
+
+      .tech-nav.active {
+        right: 0;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+      }
+
+      .nav-menu::before {
+        display: none;
+      }
+
+      .nav-link {
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
+        width: 100%;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        background: rgba(6, 214, 160, 0.1);
+        padding-left: 2rem;
+      }
+
+      .nav-link::before {
+        content: '▸';
+        left: 10px;
+        font-size: 1.2rem;
+      }
+
+      .nav-link:hover::before {
+        left: 15px;
+      }
+
+      .ai-dropdown-wrapper {
+        margin-top: 2rem;
+        width: 100%;
+      }
+
+      .ai-assistant {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .ai-badge {
+        right: -30px;
+        font-size: 0.6rem;
+      }
+
+      .ai-dropdown-content {
+        position: fixed;
+        top: auto;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        width: 90%;
+        max-width: 400px;
+      }
+
+      .ai-dropdown-content.show {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .ai-dropdown-content::before {
+        top: -8px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tech-header {
+        margin: 1rem auto;
+        padding: 1rem;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .tech-nav {
+        width: 100%;
+      }
+
+      .ai-badge {
+        display: none;
+      }
+    }
+
+    /* Demo Content */
+    .demo-content {
+      max-width: 1400px;
+      margin: 4rem auto;
+      padding: 3rem;
+      background: rgba(30, 41, 59, 0.3);
+      border-radius: 20px;
+      border: 1px solid var(--border-tech);
+      text-align: center;
+    }
+
+    .demo-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--accent), var(--neon-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .demo-content p {
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated Background Particles -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Futuristic Header -->
+  <header class="tech-header">
+    <div class="header-content">
+      <!-- Logo -->
+      <a href="index.html" class="tech-logo">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <div class="logo-text">Rupesh<span>Adhikari</span></div>
+        <!--div class="ai-badge">AI v2.6</div-->
+      </a>
+
+      <!-- Navigation -->
+      <nav class="tech-nav" id="mainNav" aria-label="Main navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <!-- AI Assistant Button with Dropdown -->
+        <div class="ai-dropdown-wrapper">
+          <button class="ai-assistant" id="aiAssistantBtn">
+            <div class="ai-pulse"></div>
+            AI Assistant
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </button>
+          <div class="ai-dropdown-content" id="aiDropdown">
+            <a href="https://chatgpt.com" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              ChatGPT
+            </a>
+            <a href="https://chat.deepseek.com" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+              DeepSeek
+            </a>
+            <a href="https://gemini.google.com" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              Gemini
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button class="tech-menu-button" id="mobileMenuButton" aria-label="Toggle navigation">
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- Demo Content -->
+  <!--div class="demo-content">
+    <h1>Futuristic AI Header 2026</h1>
+    <p>Experience the next generation of web interfaces with this cutting-edge header design featuring AI-inspired elements, glowing effects, and smooth animations.</p>
+    <p>Click the AI Assistant button to see the dropdown!</p>
+  </div -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      const mainNav = document.getElementById('mainNav');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const aiAssistantBtn = document.getElementById('aiAssistantBtn');
+      const aiDropdown = document.getElementById('aiDropdown');
+
+      // Mobile menu toggle
+      mobileMenuButton.addEventListener('click', function() {
+        mainNav.classList.toggle('active');
+        this.classList.toggle('active');
+        
+        // Close dropdown when mobile menu opens
+        aiDropdown.classList.remove('show');
+      });
+
+      // Close mobile menu when clicking a link
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mainNav.classList.remove('active');
+          mobileMenuButton.classList.remove('active');
+          aiDropdown.classList.remove('show');
+        });
+      });
+
+      // AI Assistant dropdown toggle - SIMPLE FIX
+      aiAssistantBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle dropdown visibility
+        aiDropdown.classList.toggle('show');
+      });
+
+      // Close dropdown when clicking anywhere else
+      document.addEventListener('click', function(event) {
+        const isClickInsideDropdown = aiDropdown.contains(event.target);
+        const isClickOnButton = aiAssistantBtn.contains(event.target);
+        
+        if (!isClickInsideDropdown && !isClickOnButton) {
+          aiDropdown.classList.remove('show');
+        }
+      });
+
+      // Close dropdown on mobile when menu is closed
+      if (window.innerWidth <= 768) {
+        document.addEventListener('click', function(e) {
+          if (!mainNav.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+            mainNav.classList.remove('active');
+            mobileMenuButton.classList.remove('active');
+            aiDropdown.classList.remove('show');
+          }
+        });
+      }
+
+      // Set active page based on current URL
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+        }
+      });
+
+      // AI Assistant animation on hover
+      aiAssistantBtn.addEventListener('mouseenter', function() {
+        const pulse = this.querySelector('.ai-pulse');
+        if (pulse) {
+          pulse.style.animationDuration = '0.8s';
+        }
+      });
+
+      aiAssistantBtn.addEventListener('mouseleave', function() {
+        const pulse = this.querySelector('.ai-pulse');
+        if (pulse) {
+          pulse.style.animationDuration = '1.5s';
+        }
+      });
+
+      // Add escape key to close dropdown
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          aiDropdown.classList.remove('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

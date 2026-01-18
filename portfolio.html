@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfolio — Rupesh Adhikari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/Images/Brand Identity.jpg" type="image/jpeg">
+</head>
+<body>
+  <div id="site-header" role="banner"></div>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio" id="portfolio">
+    <div class="section-title" data-aos="fade-up">
+      <h2>My Portfolio</h2>
+      <p>Recent projects that showcase my expertise</p>
+    </div>
+
+    <div class="portfolio-filters" data-aos="fade-up">
+      <button class="filter-button active" data-filter="all">All</button>
+      <button class="filter-button" data-filter="branding">Branding</button>
+      <button class="filter-button" data-filter="social">Social Media</button>
+      <button class="filter-button" data-filter="print">Print</button>
+      <button class="filter-button" data-filter="content">Content</button>
+      <button class="filter-button" data-filter="websites">Websites</button>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-category="branding" data-aos="fade-up" data-aos-delay="100">
+        <img src="assets/images/Decide.jpg" alt="Brand Identity" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Decide Tours & Travels</h3>
+          <p class="portfolio-category">Branding</p>
+          <a href="#" class="view-project">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-category="social" data-aos="fade-up" data-aos-delay="200">
+        <img src="assets/images/K&D Sons & Traders.jpg" alt="Social Media Campaign" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">KD Sons & Traders</h3>
+          <p class="portfolio-category">Social Media</p>
+          <a href="#" class="view-project">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-category="print" data-aos="fade-up" data-aos-delay="300">
+        <img src="assets/images/festivalpost.png" alt="Print Design" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Festival Poster Series</h3>
+          <p class="portfolio-category">Social Media</p>
+          <a href="#" class="view-project">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-category="content" data-aos="fade-up" data-aos-delay="400">
+        <img src="assets/Images/contentcreation.jpg" alt="Content Creation" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Travel Blog Series</h3>
+          <p class="portfolio-category">Content</p>
+          <a href="#" class="view-project">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-category="websites" data-aos="fade-up" data-aos-delay="500">
+        <img src="assets/Images/website design.PNG" alt="Website Design" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Portfolio Website</h3>
+          <p class="portfolio-category">Websites</p>
+          <a href="https://adhikarirupesh.com.np/" class="view-project">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-category="branding" data-aos="fade-up" data-aos-delay="600">
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="scripts/site.js" type="module"></script>
+  <script src="scripts/portfolio.js" type="module"></script>
+</body>
+</html>
